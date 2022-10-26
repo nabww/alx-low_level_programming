@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-void print_array(int a, int n)
+void print_array(int *a, int n)
 {
 	int i;
 
@@ -13,5 +13,5 @@ void print_array(int a, int n)
 		}else
 			printf("%d", a[i]);
 	}
-	printf("\n")
+	printf("\n");
 }

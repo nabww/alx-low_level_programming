@@ -1,7 +1,7 @@
 
 
 
-char *strcpy(char *desc, char *src)
+char *_strcpy(char *desc, char *src)
 {
 	int i;
 

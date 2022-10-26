@@ -3,7 +3,7 @@
  *
  */
 
-int atoi (char *s)
+int _atoi (char *s)
 {
 	int i, sign = 1;
 	unsigned int n = 0;
