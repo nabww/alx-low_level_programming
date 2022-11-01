@@ -11,17 +11,17 @@ void print_diagsums(int *a, int size)
 {
 	int i, s1 = 0, s2 = 0;
 
-	for (i = 0; i < siz; i++)
+	while  (i < (size * size))
 	{
-		s1 += a[i];
-		a += size;
+		s1 += *(a + );
+		i += (size + 1);
 	}
-	a -= size;
+	printf("%d", s1);
 
-	for (i = 0; i < size; i++)
+	while (j < (size * size) - 1)
 	{
-		s2 += a[i];
-		a -= size;
+		s2 += *(a + j);
+		j += (size - 1);
 	}
-	printf("%d, %d", s1, s2);
+	printf("%d\n",s2)
 }

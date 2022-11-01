@@ -4,17 +4,29 @@
 
 char *_strpbrk (char *s, char *accept)
 {
-	int i;
-	while (*s)
+	int i, j;
+	int len_long_str = strleng(s);
+	int len_accept = strnglen(accept);
+
+	for (i = 0; i < len_long_str - 1; i++)
 	{
-		for (i = 0; accept[i]; i++)
+		for (j = 0; j <len_accept - 1; j++)
 		{
-			if (*s == accept[i])
-			{
-				return (s);
-			}
+			if (*(s + i) == *(accept + j))
+				return (s + i);
 		}
-		s++;
 	}
-	return ('\0');
+	return (0);
+}
+
+
+int strleng (char *a)
+{
+	int i = 0;
+	while (a[i] != '\0')
+	{
+		i++;
+	}
+	i++;
+	return (i);
 }
