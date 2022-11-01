@@ -1,1 +1,1 @@
-#This is the second repo for arrays, pointers and strings
+# This is the second repo for arrays, pointers and strings
