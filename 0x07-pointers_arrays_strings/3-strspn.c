@@ -7,39 +7,33 @@
  * return: unsigned int
  */
 
-unsigned int strspn (char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int counter;
 	int i, j;
+	int count = 0;
+	char *str1, *str2;
 
-	int len_long_str = strleng(s);
-	int len_accept = strleng(accept);
+	str1 = s;
+	str2 = accept;
 
-
-	for (i = 0; i <len_long_str -1; i++)
+	i = 0;
+	while( str1[i] != '\0')
 	{
-		for (j = 0; j < len_accept; j++)
+		j = 0;
+		while (str2[j] != '\0')
 		{
-			if (*(s + i) == *(accept + j))
-			{
-				counter++;
-				break;
-			}
-			if (*(accept + j) == '\0')
-			{
-				return (counter);
-			}
+		if(str2[j] == str1[i])
+		{
+			count++;
+			break;
 		}
-		return counter;
+		j++;
 	}
-int strleng (char *a)
-{
-	int i = 0;
-	while (a[i] != '\0')
+	if(s[i] != accept[j])
 	{
-		i++;
+		break;
 	}
 	i++;
-	return (i);
 }
+return (count);
 }
