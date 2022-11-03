@@ -3,7 +3,7 @@
 /*
  * _puts_recursion - check code
  * @s: pointer
- * _puts_recursion - fxn
+ * @_puts_recursion - fxn
  * Return: void
  */
 
