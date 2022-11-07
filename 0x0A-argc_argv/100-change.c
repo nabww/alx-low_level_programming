@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 			else if (cents % 10 < cents)
 			{
 				cents -= 10;
-				cents ++;
+				cents++;
 			}
 			else if (cents 	% 5 < cents)
 			{
@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 			{
 				cents -= 2;
 				coins++;
-			}else if (cents & 1 < cents)
+			}
+			else if (cents & 1 < cents)
 			{
 				cents -= 1;
 				coins++;
