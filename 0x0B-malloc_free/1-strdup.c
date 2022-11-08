@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _strlen - array
- * @s: arr
- * Return - 1
+ *_strlen - array
+ *@s: arr
+ *Return: 1
  **/
 
 int _strlen(char *s)
@@ -11,18 +11,18 @@ int _strlen(char *s)
 	unsigned int i;
 
 	i = 0;
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 /**
- * _strcpy - copy
- * @src: array
- * @dest: dest arr
- * Return - dest
+ *_strcpy - copy
+ *@src: array
+ *@dest: dest arr
+ *Return: dest
  */
 
 char *_strcpy(char *dest, char *src)
@@ -40,9 +40,9 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strdup - arr
+ *_strdup - arr
  *@str: arr
- *Return - p
+ *Return: p
  **/
 char *_strdup(char *str)
 {
@@ -54,14 +54,14 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	size = _strlen(str) +1;
+	size = _strlen(str) + 1;
 
-	dst = (char *) malloc(size *sizeof(char));
+	dst = (char *) malloc(size * sizeof(char));
 
 	if (dst == 0)
 	{
 		return (NULL);
 	}
 	_strcpy(dst, str);
-	return(dst);
+	return (dst);
 }
