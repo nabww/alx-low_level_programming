@@ -1,4 +1,7 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
 
 /**
  * print_list - all elements in list_t
@@ -8,7 +11,7 @@
 
 size_t print_list(const list_t *h)
 {
-	int nelem = 0;
+	int count = 0;
 
 	while (h != NULL)
 	{
@@ -17,7 +20,7 @@ size_t print_list(const list_t *h)
 		else
 			printf("[%d] %s\n", h->len, h->str);
 		h = h->next;
-		nelem++;
+		count++;
 	}
-	return (nelem);
+	return (count);
 }
