@@ -3,7 +3,7 @@
 /**
  * find_listint_loop - check_code
  * @head: start of node
- * return: NULL/address
+ * Return: NULL/address
  **/
 
 listint_t *find_listint_loop(listint_t *head)
@@ -14,7 +14,7 @@ listint_t *find_listint_loop(listint_t *head)
 		return (NULL);
 
 	m = head->next;
-	n= (head->next)->next;
+	n = (head->next)->next;
 
 	while (n)
 	{
@@ -27,7 +27,7 @@ listint_t *find_listint_loop(listint_t *head)
 				m = m->next;
 				n = n->next;
 			}
-			return m;
+			return (m);
 		}
 		m = m->next;
 		n = (n->next)->next;
