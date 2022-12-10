@@ -1,50 +1,54 @@
 #include "main.h"
-
 /**
- * main - copies the content of a file to another file
- * @argc: number of arguments passed
- * @argv: double pointer
- * Return: the actual number of letters it could read and print
+ * main - program to copy
+ * @ac: argument count
+ * @av: array of arguments
+ * Return: a value
  */
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	int f1, f2, n;
-	char buf[1024];
+	int fdFrum, fdToo, wrote, readed;
+	char buff[1024];
 
-	if (argc != 3)
+	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	f1 = open(argv[1], O_RDONLY);
-	if (f1 == -1)
+	fdFrum = open(av[1], O_RDONLY);
+	if (fdFrum == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	f2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	while ((n = read(f1, buf, 1024)) > 0)
+	fdToo = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fdToo == -1)
 	{
-		if (write(f2, buf, n) != n || f2 == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		exit(99);
+	}
+	while ((readed = read(fdFrum, buff, 1024)) > 0)
+	{
+		wrote = write(fdToo, buff, readed);
+		if (wrote == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	}
-	if (n == -1)
+	if (readed == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	if (close(f1) < 0)
+	if (close(fdFrum) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fdFrum);
 		exit(100);
 	}
-	if (close(f2) < 0)
+	if (close(fdToo) == -1)
 	{
-		printf(STDERR_FILENO, "Error: Can't close fd %d\n", f2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fdToo);
 		exit(100);
 	}
 	return (0);
